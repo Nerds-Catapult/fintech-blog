@@ -9,20 +9,20 @@ body{
     color: #fff;
     background: #1f2641;
 }
+.window-scroll {
+    background: #00bf8e;
+    box-shadow: black;
+}
 a{
     text-decoration: none;
     color: white;
+}
+ul li{
     list-style: none;
 }
 .container{
     width: 80%;
     margin: 0 auto;
-}
-
-
-section{
-    text-align: center;
-    margin-bottom: 4rem;
 }
 .hero{
     background-image: url(/images/home.jpg);
@@ -82,10 +82,6 @@ nav button{
     color: #fff;
     font-weight: 600;
 }
-.content-body h1:hover{
-    -webkit-text-stroke: 2px #fff;
-    color: transparent;
-}
 .content-body a{
     text-decoration: none;
     display: inline-block;
@@ -97,10 +93,35 @@ nav button{
     margin-top: 20px;
 }
 .content a:hover{
-    -webkit-text-stroke: 2px #fff;
-    color: transparent;
+    color: red;
 }
 .content-body p{
     font-size: 15px;
     color: white;
+}
+.featured-stories{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 100px;
+}
+.story-container{
+    background-color: #6c6eff;
+    width: 350px;
+    color: #fff;
+    height: 200px;
+}
+.heading{
+    text-align: center;
+    padding-top: 20px;
+}
+.story-container a{
+    text-decoration: none;
+    color: black;
+    margin-top: 20px;
+}
+.content{
+    padding: 10px;
+}
+.content p{
+    padding-bottom: 60px;
 }
