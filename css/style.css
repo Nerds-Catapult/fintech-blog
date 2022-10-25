@@ -10,6 +10,9 @@ body{
     background: #1f2641;
     text-align: center;
 }
+h3{
+    text-align: center;
+}
 .window-scroll {
     background: #00bf8e;
     box-shadow: black;
@@ -105,6 +108,7 @@ nav button{
     grid-template-columns: repeat(3, 1fr);
     padding: 100px;
     border-bottom: 2px solid #00bf8e;
+    background-color: #E8F9FD;
 }
 .story-container{
     background-color: #6c6eff;
