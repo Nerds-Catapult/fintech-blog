@@ -1,24 +1,19 @@
 ---
 import ListPosts from '@/components/ListPosts'
 import TitlePage from '@/components/TitlePage'
-import BaseLayout from '@/layouts/BaseLayout'
 import { getPosts } from '@/utils'
-import IntroPosts from '@/components/IntroPosts'
 
 const MAX_POSTS = 5 // max number of posts to show on the home page
 const posts = await getPosts(MAX_POSTS)
 ---
 
-<BaseLayout title='Home'>
-	<!-- <ListCategories /> -->
-	<IntroPosts />
-
-	<div class='sm:max-w-2xl md:max-w-screen-2xl mx-auto'>
-		<!-- <h2 class='text-lg font-medium tracking-wide text-end'>Latest Posts</h2> -->
-		<TitlePage title='Explore More' />
-		<ListPosts posts={posts} />
+<div class=`bg-[url('../assets/images/bg-blue.jpeg')] bg-main-blue bg-cover bg-center relative`>
+	<div class='absolute inset-0 bg-black bg-opacity-10'></div>
+	<div class='sm:max-w-2xl md:max-w-screen-2xl mx-auto mt-4'>
+		<TitlePage title='Latest Posts' classes='text-white mb-4' />
+		<ListPosts FirstBig={true} posts={posts} classes='text-white' isIntro={true} />
 	</div>
-</BaseLayout>
+</div>
 
 <script>
 	import { animate } from 'motion'

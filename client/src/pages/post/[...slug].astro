@@ -9,6 +9,7 @@ import { getPosts } from '@/utils'
 import SButton from '@/components/mdx/SButton'
 import Disqus from '@/components/Disqus'
 import { disqusConfig } from '@/data/disqus.config'
+import Tag from '@/components/Tag'
 
 const posts = await getCollection('blog')
 export async function getStaticPaths() {
@@ -57,6 +58,9 @@ const disqusEnabled = disqusConfig.enabled
 		<article class='max-w-full w-full'>
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
 				<Content components={{ pre: Code, SButton }} />
+			</div>
+			<div class='flex flex-wrap justify-center items-center gap-2 gap-y-4 md:gap-5 my-6'>
+				{post.data.tags.map((tag) => <Tag tag={tag} />)}
 			</div>
 
 			<!-- related posts -->

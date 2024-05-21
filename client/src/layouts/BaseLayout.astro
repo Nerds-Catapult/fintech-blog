@@ -6,7 +6,8 @@ import ProviderTheme from '@/components/ProviderTheme'
 import ProviderAnimations from '@/components/ProviderAnimations'
 import TwSizeIndicator from '@/components/TwSizeIndicator'
 import EditBlog from '@/components/editBlog'
-const { title, description, image, articleDate } = Astro.props
+import { cn } from '@/utils'
+const { title, description, image, articleDate, classes } = Astro.props
 ---
 
 <html lang='en' class='scroll-smooth'>
@@ -18,8 +19,12 @@ const { title, description, image, articleDate } = Astro.props
 
 	<body class='bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white'>
 		<Header />
+		<!-- class='px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-screen-2xl grid gap-12 mt-4 overflow-hidden md:overflow-visible' -->
 		<main
-			class='px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-screen-2xl grid gap-12 mt-4 overflow-hidden md:overflow-visible'
+			class={cn(
+				'px-5 sm:mx-auto sm:px-8 lg:px-0 antialiased grid gap-12 overflow-hidden md:overflow-visible',
+				classes
+			)}
 		>
 			<slot />
 		</main>

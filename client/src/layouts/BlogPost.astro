@@ -24,6 +24,7 @@ const articleDate = pubDate.toISOString()
 	description={description}
 	image={heroImage?.src}
 	articleDate={articleDate}
+	classes='sm:max-w-2xl md:max-w-screen-2xl '
 >
 	<article class='min-w-full md:py-4 sm:max-w-none md:max-w-none'>
 		<header class='mb-3 flex flex-col justify-center items-center gap-6'>
@@ -39,10 +40,6 @@ const articleDate = pubDate.toISOString()
 				<h1 class='text-center text-4xl md:text-6xl md:pb-2.5 font-semibold'>
 					{title}
 				</h1>
-			</div>
-
-			<div class='flex flex-wrap justify-center items-center gap-2 gap-y-4 md:gap-5'>
-				{tags.map((tag) => <Tag tag={tag} />)}
 			</div>
 		</header>
 
@@ -68,6 +65,7 @@ const articleDate = pubDate.toISOString()
 		<div>
 			<slot />
 		</div>
+		
 	</article>
 </BaseLayout>
 

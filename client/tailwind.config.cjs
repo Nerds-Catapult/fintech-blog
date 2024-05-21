@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
 	darkMode: 'class',
-	content: ['./src/**/*.{astro,html,js,md,mdx,ts,tsx}'],
+	content: ['./src/**/*.{astro,html,js,md,mdx,ts,tsx,jsx}'],
 	theme: {
 		extend: {
 			colors: {
@@ -12,7 +12,8 @@ module.exports = {
 				blackish: '#010326',
 				'main-blue': '#010440',
 				'neutral-blue': '#020873',
-				blue: '#030BA6'
+				blue: '#030BA6',
+				green: '#00d100'
 			},
 			fontFamily: {
 				body: ['Manrope', ...defaultTheme.fontFamily.sans]
