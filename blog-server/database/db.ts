@@ -33,10 +33,15 @@ const fetchAllPosts = () =>
 
 
 
+
 const deletePost = (id: number) => prisma.post.delete({ where: { id } });
 
 const updatePost = (id: number, post: PostProps) =>
   prisma.post.update({ where: { id }, data: post });
+
+
+
+
 
 const postComment = (comment: CommentsProps) =>
   prisma.comment.create({ data: comment });
