@@ -2,39 +2,8 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-interface Adminprops {
-  email: string;
-  password: string;
-  fullName: string;
-  sessionToken: string;
-  phoneNumber: string;
-}
+import { Adminprops, PostProps, CategoryProps, ReaderProps, TagProps, ImageProps, CommentsProps } from "../interfaces/interfaces";
 
-interface PostProps {
-  title: string;
-  content: string;
-  published: boolean;
-  authorId: number;
-}
-
-interface CommentsProps {
-  content: string;
-  postId: number;
-  authorId: number;
-  readerId: number;
-}
-
-interface CategoryProps {
-  name: string;
-}
-
-interface ReaderProps {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  sessionToken: string;
-}
 
 const createAdmin = (admin: Adminprops) => prisma.admin.create({ data: admin });
 
@@ -57,8 +26,12 @@ const fetchAllPosts = () =>
       comments: true,
       author: true,
       categories: true,
+      images: true,
+      tags: true,
     },
   });
+
+
 
 const deletePost = (id: number) => prisma.post.delete({ where: { id } });
 
@@ -81,11 +54,17 @@ const fetchAllComments = () =>
 
 const deleteComment = (id: number) => prisma.comment.delete({ where: { id } });
 
+
+
+/* 
+  Category
+*/
 const createCategory = (category: CategoryProps) =>
   prisma.category.create({ data: category });
 
 const fetchCategoryById = (id: number) =>
   prisma.category.findUnique({ where: { id } });
+
 
 const fetchCategoryByName = (name: string) =>
   prisma.category.findUnique({ where: { name }, include: { posts: true } });
@@ -99,6 +78,38 @@ const fetchAllCategories = () =>
 
 const deleteCategory = (id: number) =>
   prisma.category.delete({ where: { id } });
+
+
+/* 
+  Tag
+*/
+
+export const createTag = (tag: TagProps) => prisma.tags.create({ data: tag });
+
+export const fetchTagById = (id: number) =>
+  prisma.tags.findUnique({ where: { id } });
+
+export const fetchTagByName = (name: string) =>
+  prisma.tags.findUnique({ where: { name } });
+
+
+export const fetchAllTags = () => prisma.tags.findMany();
+
+export const deleteTag = (id: number) => prisma.tags.delete({ where: { id } });
+
+export const createImage = (image: ImageProps) =>
+  prisma.images.create({ data: image });
+
+
+export const fetchImageById = (id: number) =>
+  prisma.images.findUnique({ where: { id } });
+
+
+export const fetchAllImages = () => prisma.images.findMany();
+
+
+export const deleteImage = (id: number) => prisma.images.delete({ where: { id } });
+
 
 const createReader = (reader: ReaderProps) =>
   prisma.reader.create({ data: reader });

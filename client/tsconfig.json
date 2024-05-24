@@ -2,8 +2,8 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "strictNullChecks": true,
-    "baseUrl": "/Users/sonylomo/Documents/code/freelance/fintech-blog/client",
-    "verbatimModuleSyntax": true,
+    "baseUrl": "/home/alpha/Documents/Github/fintech-project/fintech-blog/client",
+    "verbatimModuleSyntax": false,
     "paths": {
       "@/components/*": [
         "src/components/*.astro"
@@ -22,7 +22,7 @@
       ],
       "@/styles": [
         "src/styles/"
-      ]
+      ],
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
