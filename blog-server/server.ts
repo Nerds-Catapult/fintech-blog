@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import router from './routes/router';
 import http from 'http';
+import { PrismaClient } from '@prisma/client';
 
 
 dotenv.config();
@@ -27,11 +28,20 @@ app.use('/api', router());
 
 const server = http.createServer(app);
 
-
+async function checkPrisma() {
+    try {
+        const prisma = new PrismaClient();
+        await prisma.$connect();
+        console.log('prisma connected');
+    } catch (error) {
+        console.log('prisma connection failed');
+    }
+}
 
 const PORT = process.env.PORT || 5000;
 
 
 server.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`);
+    checkPrisma().then(r => r );
 }); 

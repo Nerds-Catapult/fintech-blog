@@ -43,3 +43,40 @@ export interface ImageProps {
   url: string;
   postId: number;
 }
+
+
+export interface returnWithHttpErrors{
+    message: string;
+    status: number;
+}
+
+export interface postProps extends PostProps {
+    categoryName: string;
+    tagName: string;
+}
+
+
+export interface returnPostWithSuccess {
+    message: string;
+    status: number;
+    data: PostProps;
+}
+
+
+export interface returnTagsWithSuccess {
+    message: string;
+    status: number;
+    data: TagProps;
+}
+
+export interface returnCategoriesWithSuccess {
+    message: string;
+    status: number;
+    data: CategoryProps;
+}
+
+ interface returnWithSuccess {
+    message: string;
+    status: number;
+    data: any;
+}

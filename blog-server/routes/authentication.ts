@@ -1,6 +1,7 @@
 import express from 'express';
 
-import { createPost, createCategoryController, fetchAllPostsController,  } from '../controllers/posts';
+import { createPost, fetchAllPostsController,  } from '../controllers/posts';
+import { createCategoryController } from '../controllers/categories';
 
 
 export default (router: express.Router) => {
