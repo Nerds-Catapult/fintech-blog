@@ -13,29 +13,18 @@ const {
 } = Astro.props
 ---
 
-<article class='flex justify-between mb-4'>
-	<div class='w-1/2 '>
+<article class=`flex justify-between mb-4 ${isIntro && "bg-card p-6"}`>
+	<div class='w-2/3'>
 		<a class='relative overflow-hidden w-full ' href={`/post/${slug}/`}>
 			<Image
 				src={heroImage}
 				width={400}
 				height={400}
 				format='webp'
-				class='h-72 w-64 object-cover hover:scale-[101%] transition-all duration-200 rounded-[2px]'
+				class='h-72 w-64 object-cover hover:scale-[105%] transition-all duration-200 rounded-[2px]'
 				alt={`img of ${title}`}
 			/>
-
-			<div class='z-30 absolute bottom-0 h-20 w-64'>
-				<div class='-z-10 absolute bottom-0 glass w-full min-h-full'></div>
-				<div class='flex items-center justify-between gap-x-1 text-white px-6 py-4'>
-					<div class='flex flex-col gap-1 items-center justify-center'>
-						<!-- <FormattedDate date={pubDate} /> -->
-						<!-- <span class='text-sm'> {readTime}</span> -->
-					</div>
-
-					<span class='pb-4'>{category}</span>
-				</div>
-			</div>
+		
 		</a>
 	</div>
 
@@ -50,7 +39,7 @@ const {
 
 			<p
 				class={cn(
-					'overflow-hidden line-clamp-3 mb-5 font-[400] md:pr-[15%]',
+					'overflow-hidden line-clamp-3 mb-5 font-[400] ',
 					isIntro ? 'text-white' : 'text-gray-700 dark:text-white'
 				)}
 			>

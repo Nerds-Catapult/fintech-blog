@@ -3,7 +3,7 @@ import HeaderLink from '@/components/HeaderLink'
 import MenuIcon from './icons/MenuIcon.astro'
 import Search from '@/components/Search'
 import TagIcon from './icons/TagIcon.astro'
-import ToggleTheme from './ToggleTheme.astro'
+// import ToggleTheme from './ToggleTheme.astro'
 import { getTags } from '@/utils'
 import logo from '../assets/logo/logo-transparent.png'
 import { Image } from 'astro:assets'
@@ -78,7 +78,7 @@ const NAVLINKS = [
 			</a>
 
 			<!-- nav in desktop -->
-			<nav class='hidden md:flex gap-4 left-[20%] w-full absolute items-center'>
+			<nav class='hidden md:flex gap-6 w-full justify-center items-center'>
 				{
 					NAVLINKS.map((link) => (
 						<HeaderLink

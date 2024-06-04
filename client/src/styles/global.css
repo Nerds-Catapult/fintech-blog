@@ -28,6 +28,14 @@
 	}
 }
 
+.bg-card {
+	background: linear-gradient(340.55deg, rgba(46, 92, 255, 0.15) -1.95%, rgba(0, 0, 0, 0) 26.83%),
+		linear-gradient(146.92deg, rgba(46, 92, 255, 0.15) 5.13%, rgba(0, 0, 0, 0) 28.78%),
+		linear-gradient(149.68deg, rgba(255, 255, 255, 0.1) 1.74%, rgba(255, 255, 255, 0) 93.25%);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
 .glass {
 	background: rgba(57, 56, 56, 0.52);
 	backdrop-filter: blur(13px) saturate(150%);
