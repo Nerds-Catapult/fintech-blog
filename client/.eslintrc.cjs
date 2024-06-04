@@ -1,18 +1,24 @@
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-  ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
-  },
+	extends: ['plugin:astro/recommended'],
+	parser: '@typescript-eslint/parser',
+	parserOptions: {
+		tsconfigRootDir: __dirname,
+		sourceType: 'module',
+		ecmaVersion: 'latest'
+	},
+	overrides: [
+		{
+			files: ['*.astro'],
+			parser: 'astro-eslint-parser',
+			parserOptions: {
+				parser: '@typescript-eslint/parser',
+				extraFileExtensions: ['.astro']
+			},
+			rules: {
+				// override/add rules settings here, such as:
+				'astro/no-set-html-directive': 'error'
+			}
+		}
+	]
 }
