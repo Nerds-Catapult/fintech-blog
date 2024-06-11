@@ -1,3 +1,13 @@
 node_modules
 # Keep environment variables out of version control
 .env
+
+.idea
+.vscode
+
+# Ignore Mac specific files
+.DS_Store
+
+
+# Ignore the build directory
+build
