@@ -13,15 +13,15 @@ const {
 } = Astro.props
 ---
 
-<article class=`flex justify-between mb-4 ${isIntro && "bg-card p-6"}`>
-	<div class='w-2/3'>
+<article class=`flex justify-between flex-col md:flex-row mb-4 ${isIntro && "bg-card p-6"}`>
+	<div class='w-full md:w-2/3'>
 		<a class='relative overflow-hidden w-full' href={`/post/${slug}/`}>
 			<Image
 				src={heroImage}
 				width={400}
 				height={400}
 				format='webp'
-				class='h-72 w-64 object-cover hover:scale-[105%] transition-all duration-200 rounded-[2px]'
+				class='h-72 w-full md:w-64 object-cover hover:scale-[105%] transition-all duration-200 rounded-[2px]'
 				alt={`img of ${title}`}
 			/>
 		</a>

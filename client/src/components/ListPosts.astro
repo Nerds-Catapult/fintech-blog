@@ -18,7 +18,9 @@ const { posts, FirstBig = false, isIntro = false, classes } = Astro.props
 
 <section
 	class={cn(
-		isIntro ? 'flex justify-between' : 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3',
+		isIntro
+			? 'flex justify-between flex-col md:flex-row '
+			: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3',
 		`gap-8 mt-3`,
 		FirstBig && `md:[&>*:first-child]:col-span-2`,
 		classes
@@ -31,7 +33,7 @@ const { posts, FirstBig = false, isIntro = false, classes } = Astro.props
 	}
 	{
 		isIntro ? (
-			<div class="gap-4">
+			<div class='gap-4'>
 				{posts.slice(1, 4).map(async (post) => {
 					const { remarkPluginFrontmatter } = await post.render()
 
