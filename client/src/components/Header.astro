@@ -1,0 +1,147 @@
+---
+import HeaderLink from '@/components/HeaderLink'
+import MenuIcon from './icons/MenuIcon.astro'
+import Search from '@/components/Search'
+import TagIcon from './icons/TagIcon.astro'
+// import ToggleTheme from './ToggleTheme.astro'
+import { getTags } from '@/utils'
+import logo from '../assets/logo/logo-transparent.png'
+import { Image } from 'astro:assets'
+
+const tags = await getTags()
+
+const NAVLINKS = [
+	{
+		name: 'Investing',
+		url: '/investing'
+	},
+	{
+		name: 'Payment Systems',
+		url: '/payment-systems'
+	},
+	{
+		name: 'Robo-Advisors',
+		url: '/robo-advisors'
+	},
+	{
+		name: 'Personal Finance',
+		url: '/personal-finance'
+	},
+	{
+		name: 'Cryptocurrencies',
+		url: '/cryptocurrencies'
+	},
+	{
+		name: 'Reviews',
+		url: '/reviews'
+	},
+	{
+		name: 'News',
+		url: '/news'
+	}
+]
+---
+
+<header class='mt-4'>
+	<div
+		class='px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-screen-2xl grid gap-12 my-4 overflow-hidden md:overflow-visible'
+	>
+		<div class='relative flex items-center h-12 font-semibold'>
+			<div class='md:ml-16'>
+				<input type='checkbox' id='active' />
+				<label
+					for='active'
+					class='menu-btn absolute z-50 left-0 top-0 h-12 w-12 text-center leading-10 cursor-pointer text-xl transition-all duration-300 ease-in-out'
+					><span></span></label
+				>
+				<label for='active' class='close'></label>
+
+				<div
+					class='wrapper fixed top-24 -right-[100%] h-full w-full bg-main-blue transition-all duration-700 ease-in-out z-40 hidden md:block'
+				>
+					<ul>
+						{
+							NAVLINKS.map((link) => (
+								<li class=''>
+									<a href={link.url} aria-label={link.name}>
+										{link.name}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+
+			<a class='mr-auto -ml-10 mt-3' href='/'>
+				<Image src={logo} alt='the Fintech Guide' class='w-48' />
+			</a>
+
+			<!-- nav in desktop -->
+			<nav class='hidden md:flex gap-6 w-full justify-center items-center'>
+				{
+					NAVLINKS.map((link) => (
+						<HeaderLink
+							href={link.url}
+							class='hover:underline text-base font-medium hover:text-blue before:transition-all before:duration-400 before:ease-custom before:bg-blue'
+						>
+							{link.name}
+						</HeaderLink>
+					))
+				}
+			</nav>
+
+			<!-- <div
+		id='astro-header-drawer'
+		class='hidden md:block shadow rounded-l-lg md:bg-transparent dark:md:bg-transparent bg-white dark:bg-[#0a0910] md:shadow-none md:rounded-none md:border-none md:h-auto md:static absolute transition-transform duration-300 ease-in translate-x-96 md:translate-x-0 top-12 -right-5 pl-4 pt-6 pb-4 md:p-0 h-[200px] w-[200px] z-50'
+	>
+		<nav class='flex h-full flex-col justify-end gap-12 text-left md:flex-row md:w-full md:gap-0'>
+			<div
+				class='flex flex-col gap-4 md:flex-row md:border-r-2 border-black pr-4 dark:border-white mr-4'
+			>
+				<HeaderLink href='/tags' class='flex items-center gap-1 text-2xl md:text-base'>
+					<TagIcon /> Tags
+				</HeaderLink>
+			</div>
+		</nav>
+	</div> -->
+
+			<div class='flex items-center gap-3' transition:persist='navbar'>
+				<Search />
+
+				<!-- <ToggleTheme /> -->
+
+				<!-- <button id='astro-header-drawer-button' type='button' class='md:ml-6'>
+			<MenuIcon />
+			<span class='sr-only'>Show Menu</span>
+		</button> -->
+			</div>
+		</div>
+	</div>
+
+	<div class='flex justify-center flex-wrap gap-4 bg-blackish py-3 text-white shadow-xl'>
+		<TagIcon /> Tags: {
+			tags.map((tag) => (
+				<a href={`/tags/${tag}`} class='inline-block font-semibold mr-2 overflow-x-auto'>
+					{tag}
+				</a>
+			))
+		}
+	</div>
+</header>
+<script>
+	document.addEventListener('click', (event) => {
+		const menu = document.getElementById('astro-header-drawer')
+		const menuButton = document.getElementById('astro-header-drawer-button')
+
+		const isClickInside =
+			menu?.contains(event.target as HTMLDivElement) ||
+			menuButton?.contains(event.target as HTMLButtonElement)
+
+		if (isClickInside) {
+			menu?.classList.toggle('translate-x-96')
+		} else {
+			menu?.classList.add('translate-x-96')
+		}
+	})
+</script>

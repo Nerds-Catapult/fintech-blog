@@ -1,0 +1,17 @@
+---
+import { cn } from '@/utils'
+import Title from './Title.astro'
+import Shape from './icons/Shape.astro'
+
+type Props = {
+	title: string
+	classes?: string
+}
+
+const { title, classes } = Astro.props
+---
+
+<div class={cn('flex justify-start items-center gap-2 title', classes)}>
+	<!-- <Shape /> -->
+	<Title>{title}</Title>
+</div>
