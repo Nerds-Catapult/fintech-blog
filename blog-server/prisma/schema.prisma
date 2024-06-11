@@ -52,7 +52,6 @@ model Category {
   name  String @unique
   posts Post[] @relation("PostCategories")
 }
-
 model Reader {
   id           Int      @id @default(autoincrement())
   firstName    String
