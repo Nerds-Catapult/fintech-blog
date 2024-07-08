@@ -29,7 +29,7 @@
 		"@astrojs/rss": "4.0.6",
 		"@types/react": "^18.3.2",
 		"@types/react-dom": "^18.3.0",
-		"astro": "4.0.8",
+		"astro": "4.11.5",
 		"astro-font": "^0.0.72",
 		"nanostores": "^0.10.3",
 		"react": "^18.3.1",
